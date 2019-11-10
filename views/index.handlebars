@@ -3,30 +3,35 @@
 <h2>Burgers Ready Ta Eat!</h2>
 
 <ul>
-  {{#each burger}}
+    {{#each burger}}
     {{#unless devoured}}
-      {{burger_name}}
+    <li>
+        {{burger_name}}
+        <button class="eatBtn" id="{{id}}">Devour It!</button>
+    </li>
     {{/unless}}
-  {{/each}}
+    {{/each}}
 </ul>
 
 <h2>Burgers Gone From Dis World!</h2>
 
 <ul>
-  {{#each burger}}
+    {{#each burger}}
     {{#if devoured}}
-      {{burger_name}}
+    <li>
+        {{burger_name}}
+    </li>
     {{/if}}
-  {{/each}}
+    {{/each}}
 </ul>
 
 <h2>Add Da Burger</h2>
 <form class="create-form">
 
-  <div class="form-group">
-    <label for="burg">Burger Name:</label>
-    <input type="text" id="burg" name="name">
-  </div>
+    <div class="form-group">
+        <label for="burg">Burger Name:</label>
+        <input type="text" id="burg" name="name">
+    </div>
 
-  <button type="submit">Add Burger</button>
+    <button type="submit">Add Burger</button>
 </form>
