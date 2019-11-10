@@ -1,4 +1,8 @@
 <main class="container">
+    <div class="d-flex justify-content-center">
+        <a href="https://www.vecteezy.com/" target="_blank"><img src="burg.png" alt="Vectors by Vecteezy" style="max-height: 300px;"></a>
+    </div>
+
     <h1>Eat-Da-Burger!</h1>
     <div class="row d-flex">
         <div class="col">
@@ -8,9 +12,9 @@
                 {{#each burger}}
                 {{#unless devoured}}
                 <li>
+                    <button class="eatBtn btn btn-danger" id="{{id}}">Devour It!</button>
                     {{burger_name}}
                 </li>
-                <button class="eatBtn btn btn-danger" id="{{id}}">Devour It!</button>
                 {{/unless}}
                 {{/each}}
             </ul>
