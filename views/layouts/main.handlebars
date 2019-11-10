@@ -1,12 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://code.jquery.com/jquery.js"></script>
     <title>Eat-Da-Burger!</title>
 </head>
+
 <body>
     {{{ body }}}
+    <script>
+        $(function () {
+            $(".create-form").on("submit", function (event) {
+                // Make sure to preventDefault on a submit event.
+                event.preventDefault();
+
+                var newBurg = {
+                    name: $("#burg").val().trim(),
+                };
+
+                $.ajax("/api/burgers", {
+                    type: "POST",
+                    data: newBurg
+                }).then(
+                    function () {
+                        console.log("Order up!");
+                        // Reload the page to get the updated list
+                        location.reload();
+                    }
+                );
+            })
+        });
+    </script>
 </body>
+
 </html>
