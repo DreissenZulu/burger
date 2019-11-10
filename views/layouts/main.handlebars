@@ -24,14 +24,27 @@
                 $.ajax("/api/burgers", {
                     type: "POST",
                     data: newBurg
-                }).then(
-                    function () {
+                }).then(() => {
                         console.log("Order up!");
                         // Reload the page to get the updated list
                         location.reload();
                     }
                 );
             })
+           $(".eatBtn").on("click", function(event) {
+               console.log(this.id);
+               let devouredState = {
+                   devoured: "true"
+               };
+
+               $.ajax(`/api/burgers/${this.id}`, {
+                   type: "PUT",
+                   data: devouredState
+               }).then(() => {
+                   console.log("Enjoy!");
+                   location.reload();
+               })
+           }) 
         });
     </script>
 </body>
