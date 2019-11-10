@@ -12,7 +12,7 @@ var orm = {
         });
     },
     insertOne: (table, cols, vals, cb) => {
-        let queryString = `INSERT INTO ${table} (${cols}) VALUES (${vals});`;
+        let queryString = `INSERT INTO ${table} (${cols}) VALUES ("${vals}");`;
         connection.query(queryString, function(err, res) {
             if (err) throw err;
             cb(res);
